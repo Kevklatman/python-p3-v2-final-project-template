@@ -1,5 +1,21 @@
 # Phase 3 CLI+ORM Project Template
 
+an application for baseball organizations to manage their player scouting reports
+
+A Scout has many Players and Evaluations
+A Player has many Evaluations
+An Evaluation belongs to a Player and a Scout
+
+Manage evaluations: add, edit, remove evaluations
+Manage players: add, edit, remove players
+Record and view player evaluations submitted by scouts
+Generate reports on top prospects, scout activity, and player evaluations
+Search through existing players, scouts, and evaluations
+Validate user input and handle errors
+
+Stretch goals: make specifically for the Colorado Rockies by implementing historical player data from the Rockies organization and allowing the user to find comprable players historically within the Rockies organization 
+
+
 ## Learning Goals
 
 - Discuss the basic directory structure of a CLI.
@@ -16,16 +32,11 @@ Take a look at the directory structure:
 
 ```console
 .
-├── Pipfile
-├── Pipfile.lock
-├── README.md
-└── lib
-    ├── models
-    │   ├── __init__.py
-    │   └── model_1.py
-    ├── cli.py
-    ├── debug.py
-    └── helpers.py
+
+|___ lib  |
+|_____models
+|_____model_1.py
+
 ```
 
 Note: The directory also includes two files named `CONTRIBUTING.md` and

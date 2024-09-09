@@ -1,5 +1,5 @@
 # lib/cli.py
-
+from models import evaluations, players, scout
 from helpers import (
     exit_program,
     helper_1
@@ -19,6 +19,8 @@ def main():
 
 
 def menu():
+    print("Baseball Scout Manager CLI")
+    print("---------------------------")
     print("Please select an option:")
     print("0. Exit the program")
     print("1. Some useful function")
