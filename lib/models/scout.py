@@ -1,4 +1,5 @@
-from __init__ import CONN, CURSOR
+from . import CONN, CURSOR
+import sqlite3
 
 class Scout:
     def __init__(self, id=None, name=None, region=None):

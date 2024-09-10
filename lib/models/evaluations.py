@@ -1,5 +1,6 @@
-from __init__ import CONN, CURSOR
+from . import CONN, CURSOR
 from datetime import datetime
+import sqlite3
 
 class Evaluation:
     def __init__(self, id=None, scout_id=None, player_id=None, date=None, grade=None, notes=None, player_comparison=None):
