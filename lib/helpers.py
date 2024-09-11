@@ -74,7 +74,7 @@ def update_evaluation():
         notes = input(f"Enter new evaluation notes (current: {evaluation.notes}): ")
         player_comparison = input(f"Enter new player comparison (current: {evaluation.player_comparison}): ")
         
-        # Update the evaluation attributes
+        #updated evaluation attributes
         evaluation.update(
             scout_id=int(scout_id) if scout_id else None,
             player_id=int(player_id) if player_id else None,

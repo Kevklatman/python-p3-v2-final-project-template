@@ -33,7 +33,7 @@ def main():
         elif choice == "7":
             update_evaluation()
         elif choice == "8":
-            delete_player()  # Add the delete player option
+            delete_player()  
         else:
             print("Invalid choice")
 
@@ -50,7 +50,7 @@ def menu():
     print("5. View all players")
     print("6. View all evaluations")
     print("7. Update an evaluation")
-    print("8. Delete a player")  # Add the delete player option to the menu
+    print("8. Delete a player")  
 
 
 if __name__ == "__main__":
