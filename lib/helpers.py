@@ -100,6 +100,25 @@ def delete_player():
         print(f"Player with ID {player_id} not found.")
 
 
+def view_evaluations_by_scout_name():
+    print("View evaluations by scout name")
+    scout_name = input("Enter scout name: ")
+    
+    evaluations = Evaluation.get_by_scout_name(scout_name)
+    if evaluations:
+        print(f"Evaluations by scout {scout_name}:")
+        for evaluation in evaluations:
+            print(f"- Evaluation ID: {evaluation.id}")
+            print(f"  Player ID: {evaluation.player_id}")
+            print(f"  Date: {evaluation.date}")
+            print(f"  Grade: {evaluation.grade}")
+            print(f"  Notes: {evaluation.notes}")
+            print(f"  Player Comparison: {evaluation.player_comparison}")
+            print()
+    else:
+        print(f"No evaluations found for scout {scout_name}")
+
+
 
 def exit_program():
     print("Goodbye!")

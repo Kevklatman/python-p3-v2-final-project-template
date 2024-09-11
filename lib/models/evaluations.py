@@ -194,3 +194,19 @@ class Evaluation:
         if player_comparison is not None:
             self.player_comparison = player_comparison
         self.save()
+
+    @classmethod
+    def get_by_scout_name(cls, scout_name):
+        """Retrieve all evaluations for a given scout name"""
+        sql = """
+            SELECT e.* 
+            FROM evaluations e
+            JOIN scouts s ON e.scout_id = s.id
+            WHERE s.name = ?
+        """
+        try:
+            results = CURSOR.execute(sql, (scout_name,)).fetchall()
+            return [cls(*row) for row in results]
+        except sqlite3.Error as e:  
+            print(f"Error retrieving evaluations for scout {scout_name}: {e}")
+            return []
