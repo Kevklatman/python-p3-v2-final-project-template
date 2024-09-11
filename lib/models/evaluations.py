@@ -51,10 +51,7 @@ class Evaluation:
 
     @date.setter
     def date(self, value):
-        if value is None or isinstance(value, datetime):
-            self._date = value
-        else:
-            raise ValueError("Date must be a datetime object or None.")
+        self._date= value
 
     @property
     def grade(self):
@@ -170,3 +167,30 @@ class Evaluation:
         except sqlite3.Error as e:
             print(f"Error retrieving evaluations for player {player_id}: {e}")
             return []
+        
+    @classmethod
+    def get_all(cls):
+        """Retrieve all evaluations"""
+        sql = "SELECT * FROM evaluations"
+        try:
+            results = CURSOR.execute(sql).fetchall()
+            return [cls(*row) for row in results]
+        except sqlite3.Error as e:
+            print(f"Error retrieving evaluations: {e}")
+            return []
+
+    def update(self, scout_id=None, player_id=None, date=None, grade=None, notes=None, player_comparison=None):
+        """Update the evaluation with new values"""
+        if scout_id is not None:
+            self.scout_id = scout_id
+        if player_id is not None:
+            self.player_id = player_id
+        if date is not None:
+            self.date = date
+        if grade is not None:
+            self.grade = grade
+        if notes is not None:
+            self.notes = notes
+        if player_comparison is not None:
+            self.player_comparison = player_comparison
+        self.save()

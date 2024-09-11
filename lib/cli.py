@@ -6,7 +6,8 @@ from helpers import (
     add_evaluation,
     view_scouts,
     view_players,
-    view_evaluations
+    view_evaluations,
+    update_evaluation  
 )
 
 
@@ -28,6 +29,8 @@ def main():
             view_players()
         elif choice == "6":
             view_evaluations()
+        elif choice == "7":
+            update_evaluation()  
         else:
             print("Invalid choice")
 
@@ -43,6 +46,7 @@ def menu():
     print("4. View all scouts")
     print("5. View all players")
     print("6. View all evaluations")
+    print("7. Update an evaluation")  
 
 
 if __name__ == "__main__":
