@@ -140,3 +140,15 @@ class Player:
         except sqlite3.Error as e:
             print(f"Error retrieving evaluations for player {self.id}: {e}")
             return []
+        
+    def delete(self):
+        """Delete the player from the database"""
+        if self.id is not None:
+            sql = "DELETE FROM players WHERE id = ?"
+            try:
+                CURSOR.execute(sql, (self.id,))
+                CONN.commit()
+                self.id = None
+            except sqlite3.Error as e:
+                print(f"Error deleting player: {e}")
+                CONN.rollback()

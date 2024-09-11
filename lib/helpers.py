@@ -88,6 +88,17 @@ def update_evaluation():
     else:
         print(f"Evaluation {eval_id} not found.")
 
+def delete_player():
+    print("Delete a player")
+    player_id = int(input("Enter player ID: "))
+    
+    player = Player.get_by_id(player_id)
+    if player:
+        player.delete()
+        print(f"Player {player.name} ({player.id}) deleted successfully.")
+    else:
+        print(f"Player with ID {player_id} not found.")
+
 
 
 def exit_program():
