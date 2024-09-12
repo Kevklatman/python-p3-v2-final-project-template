@@ -276,5 +276,5 @@ def view_evaluations_by_position():
 
 
 def exit_program():
-    print("Goodbye!")
+    print("Peace be with you.")
     exit()
