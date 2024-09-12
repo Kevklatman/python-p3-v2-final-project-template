@@ -48,10 +48,14 @@ def add_player():
     
     while True:
         print("What would you like to do next?")
+        print("0. Exit program")
         print("1. Add another player")
         print("2. Return to main menu")
         choice = input("> ")
         
+        if choice == "0":
+            exit_program()
+            break
         if choice == "1":
             add_player()
             break
@@ -76,10 +80,14 @@ def add_evaluation():
     
     while True:
         print("What would you like to do next?")
+        print("0. Exit program")
         print("1. Add another evaluation")
         print("2. Return to main menu")
         choice = input("> ")
         
+        if choice == "0":
+            exit_program()
+            break
         if choice == "1":
             add_evaluation()
             break
