@@ -12,6 +12,28 @@ def add_scout():
     
     scout = Scout.create(name, region)
     print(f"Scout {scout.name} ({scout.id}) added successfully.")
+    
+    while True:
+        print("What would you like to do next?")
+        print("0. Exit program")
+        print("1. Add another scout")
+        print("2. View all scouts")
+        print("3. Return to main menu")
+        choice = input("> ")
+        
+        if choice == "0":
+            exit_program()
+            break
+        if choice == "1":
+            add_scout()
+            break
+        if choice == "2":
+            view_scouts()
+        elif choice == "3":
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
 
 
 def add_player():
@@ -23,6 +45,21 @@ def add_player():
     
     player = Player.create(name, position, age, team)
     print(f"Player {player.name} ({player.id}) added successfully.")
+    
+    while True:
+        print("What would you like to do next?")
+        print("1. Add another player")
+        print("2. Return to main menu")
+        choice = input("> ")
+        
+        if choice == "1":
+            add_player()
+            break
+        elif choice == "2":
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
 
 
 def add_evaluation():
