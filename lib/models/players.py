@@ -152,3 +152,17 @@ class Player:
             except sqlite3.Error as e:
                 print(f"Error deleting player: {e}")
                 CONN.rollback()
+
+
+    @classmethod
+    def get_by_name(cls, player_name):
+        """Retrieve a player by name"""
+        sql = "SELECT * FROM players WHERE LOWER(name) LIKE LOWER(?) LIMIT 1"
+        try:
+            result = CURSOR.execute(sql, ('%' + player_name + '%',)).fetchone()
+            if result:
+                return cls(*result)
+            return None
+        except sqlite3.Error as e:
+            print(f"Error retrieving player by name '{player_name}': {e}")
+            return None

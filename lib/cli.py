@@ -1,4 +1,3 @@
-# lib/cli.py
 from helpers import (
     exit_program,
     add_scout,
@@ -9,7 +8,8 @@ from helpers import (
     view_evaluations,
     update_evaluation,
     delete_player,
-    view_evaluations_by_scout_name  
+    view_evaluations_by_scout_name,
+    view_evaluations_by_player_name  
 )
 
 
@@ -37,6 +37,8 @@ def main():
             delete_player()
         elif choice == "9":  
             view_evaluations_by_scout_name()
+        elif choice == "10":  
+            view_evaluations_by_player_name()
         else:
             print("Invalid choice")
 
@@ -56,6 +58,7 @@ def menu():
     print("7. Update an evaluation")
     print("8. Delete a player")
     print("9. View evaluations by scout name")  
+    print("10. View evaluations by player name")  
 
 
 if __name__ == "__main__":

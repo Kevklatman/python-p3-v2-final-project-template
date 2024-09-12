@@ -195,6 +195,64 @@ def view_evaluations_by_scout_name():
         print(f"No evaluations found for scout {scout_name}")
 
 
+def view_evaluations_by_player_name():
+    print("View evaluations by player name")
+    player_name = input("Enter player name: ")
+    evaluations = Evaluation.get_by_player_name(player_name)
+    if evaluations:
+        print(f"Evaluations for player {player_name}:")
+        for evaluation in evaluations:
+            print(f"- Evaluation ID: {evaluation.id}")
+            print(f"  Scout ID: {evaluation.scout_id}")
+            print(f"  Date: {evaluation.date}")
+            print(f"  Grade: {evaluation.grade}")
+            print(f"  Notes: {evaluation.notes}")
+            print(f"  Player Comparison: {evaluation.player_comparison}")
+            print()
+        
+        while True:
+            print("What would you like to do next?")
+            print("0. Exit program")
+            print("1. Add another evaluation for this player")
+            print("2. Add a new evaluation")
+            print("3. Return to main menu")
+            choice = input("> ")
+            
+            if choice == "0":
+                exit_program()
+                break
+            elif choice == "1":
+                add_evaluation_for_player(player_name)
+                break
+            elif choice == "2":
+                add_evaluation()
+                break
+            elif choice == "3":
+                break
+            else:
+                print("Invalid choice. Please try again.")
+    else:
+        print(f"No evaluations found for player {player_name}")
+
+def add_evaluation_for_player(player_name):
+    print(f"Add another evaluation for player: {player_name}")
+    player = Player.get_by_name(player_name)
+    if player:
+        scout_id = int(input("Enter scout ID: "))
+        date = input("Enter evaluation date (YYYY-MM-DD): ")
+        grade = input("Enter evaluation grade: ")
+        notes = input("Enter evaluation notes: ")
+        player_comparison = input("Enter comparison: ")
+        
+        evaluation = Evaluation.create(scout_id, player.id, date, grade, notes, player_comparison)
+        print(f"Evaluation {evaluation.id} added successfully for player {player_name}.")
+    else:
+        print(f"Player {player_name} not found.")
+
+
+
+
+
 
 def exit_program():
     print("Goodbye!")

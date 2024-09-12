@@ -210,3 +210,19 @@ class Evaluation:
         except sqlite3.Error as e:  
             print(f"Error retrieving evaluations for scout {scout_name}: {e}")
             return []
+   
+    @classmethod
+    def get_by_player_name(cls, player_name):
+        """Retrieve all evaluations for a given player name"""
+        sql = """
+            SELECT e.*
+            FROM evaluations e
+            JOIN players p ON e.player_id = p.id
+            WHERE p.name = ?
+        """
+        try:
+            results = CURSOR.execute(sql, (player_name,)).fetchall()
+            return [cls(*row) for row in results]
+        except sqlite3.Error as e:
+            print(f"Error retrieving evaluations for player {player_name}: {e}")
+            return []
