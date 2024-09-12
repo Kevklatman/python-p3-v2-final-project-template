@@ -35,16 +35,16 @@ def main():
             update_evaluation()
         elif choice == "8":
             delete_player()
-        elif choice == "9":  # Add this condition
+        elif choice == "9":  
             view_evaluations_by_scout_name()
         else:
             print("Invalid choice")
 
 
 def menu():
-    print("---------------------------")
+    print("-----------------------------------------------")
     print("Baseball Scout Manager CLI")
-    print("---------------------------")
+    print("-----------------------------------------------")
     print("Please select an option:")
     print("0. Exit the program")
     print("1. Add a scout")

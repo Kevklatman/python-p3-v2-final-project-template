@@ -36,6 +36,20 @@ def add_evaluation():
     
     evaluation = Evaluation.create(scout_id, player_id, date, grade, notes, player_comparison)
     print(f"Evaluation {evaluation.id} added successfully.")
+    
+    while True:
+        print("What would you like to do next?")
+        print("1. Add another evaluation")
+        print("2. Return to main menu")
+        choice = input("> ")
+        
+        if choice == "1":
+            add_evaluation()
+            break
+        elif choice == "2":
+            break
+        else:
+            print("Invalid choice. Please try again.")
 
 
 def view_scouts():
@@ -56,7 +70,7 @@ def view_evaluations():
     print("All Evaluations:")
     evaluations = Evaluation.get_all()
     for evaluation in evaluations:
-        print(f"ID: {evaluation.id}, Scout ID: {evaluation.scout_id}, Player ID: {evaluation.player_id}, Date: {evaluation.date}, Grade: {evaluation.grade}, Notes: {evaluation.notes}")
+        print(f"ID: {evaluation.id}, Scout ID: {evaluation.scout_id}, Player ID: {evaluation.player_id}, Date: {evaluation.date}, Grade: {evaluation.grade}, Notes: {evaluation.notes} similar to {evaluation.player_comparison}")
 
 
 def update_evaluation():
