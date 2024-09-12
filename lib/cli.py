@@ -9,7 +9,8 @@ from helpers import (
     update_evaluation,
     delete_player,
     view_evaluations_by_scout_name,
-    view_evaluations_by_player_name  
+    view_evaluations_by_player_name,
+    view_evaluations_by_position
 )
 
 
@@ -39,6 +40,8 @@ def main():
             view_evaluations_by_scout_name()
         elif choice == "10":  
             view_evaluations_by_player_name()
+        elif choice == "11":
+            view_evaluations_by_position()
         else:
             print("Invalid choice")
 
@@ -58,7 +61,8 @@ def menu():
     print("7. Update an evaluation")
     print("8. Delete a player")
     print("9. View evaluations by scout name")  
-    print("10. View evaluations by player name")  
+    print("10. View evaluations by player name")
+    print("11. View evaluations by position")  
 
 
 if __name__ == "__main__":

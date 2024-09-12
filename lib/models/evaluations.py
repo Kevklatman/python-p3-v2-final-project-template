@@ -226,3 +226,29 @@ class Evaluation:
         except sqlite3.Error as e:
             print(f"Error retrieving evaluations for player {player_name}: {e}")
             return []
+        
+    @classmethod
+    def get_by_position(cls, position):
+        """Retrieve all evaluations for a given player position"""
+        sql = """
+            SELECT e.* 
+            FROM evaluations e
+            JOIN players p ON e.player_id = p.id
+            WHERE LOWER(p.position) = LOWER(?)
+        """
+        try:
+            cursor = CONN.cursor()
+            cursor.execute(sql, (position,))
+            results = cursor.fetchall()
+            cursor.close()
+            if results:
+                return [cls(*row) for row in results]
+            return None
+        except sqlite3.Error as e:
+            print(f"Database error occurred: {e}")
+            return None
+        finally:
+            CONN.commit()
+        
+        
+

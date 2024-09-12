@@ -250,6 +250,27 @@ def add_evaluation_for_player(player_name):
         print(f"Player {player_name} not found.")
 
 
+def view_evaluations_by_position():
+    print("View evaluations by position")
+    position = input("Enter position: ")
+    
+    evaluations = Evaluation.get_by_position(position)
+    if evaluations is None:
+        print(f"No evaluations found for position '{position}'")
+    else:
+        print(f"Evaluations for position {position}:")
+        for evaluation in evaluations:
+            print(f"- Evaluation ID: {evaluation.id}")
+            print(f"  Scout ID: {evaluation.scout_id}")
+            print(f"  Player ID: {evaluation.player_id}")
+            print(f"  Date: {evaluation.date}")
+            print(f"  Grade: {evaluation.grade}")
+            print(f"  Notes: {evaluation.notes}")
+            print(f"  Player Comparison: {evaluation.player_comparison}")
+            print()
+
+
+
 
 
 
