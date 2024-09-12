@@ -35,7 +35,7 @@ class Scout:
 
     @region.setter
     def region(self, value):
-        allowed_regions = ['Northeast', 'Southeast', 'Midwest', 'Southwest', 'West']
+        allowed_regions = ['Northeast', 'Southeast', 'Midwest', 'Southwest', 'West', 'East', 'South', 'Northwest', 'North']
         if value is None or (isinstance(value, str) and value.capitalize() in allowed_regions):
             self._region = value
         else:
