@@ -81,20 +81,37 @@ def add_evaluation():
     while True:
         print("What would you like to do next?")
         print("0. Exit program")
-        print("1. Add another evaluation")
-        print("2. Return to main menu")
+        print("1. Add another evaluation for this scout")
+        print("2. Add a new evaluation")
+        print("3. Return to main menu")
         choice = input("> ")
         
         if choice == "0":
             exit_program()
             break
-        if choice == "1":
-            add_evaluation()
+        elif choice == "1":
+            add_evaluation_for_scout(scout_id)
             break
         elif choice == "2":
+            add_evaluation()
+            break
+        elif choice == "3":
             break
         else:
             print("Invalid choice. Please try again.")
+
+
+def add_evaluation_for_scout(scout_id):
+    print(f"Add another evaluation for scout with ID: {scout_id}")
+    player_id = int(input("Enter player ID: "))
+    date = input("Enter evaluation date (YYYY-MM-DD): ")
+    grade = input("Enter evaluation grade: ")
+    notes = input("Enter evaluation notes: ")
+    player_comparison = input("Enter comparison: ")
+    
+    evaluation = Evaluation.create(scout_id, player_id, date, grade, notes, player_comparison)
+    print(f"Evaluation {evaluation.id} added successfully.")
+
 
 
 def view_scouts():
